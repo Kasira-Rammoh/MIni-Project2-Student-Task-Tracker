@@ -1,0 +1,671 @@
+:root {
+  /* Pink */
+  --pink-main: #f3aeca;
+  --pink-light: #ffdce9;
+  --pink-soft: #fff3f8;
+
+  /* Purple */
+  --purple-main: #bda2e0;
+  --purple-light: #e6d8f6;
+  --purple-soft: #f5effc;
+
+  /* Yellow */
+  --yellow-main: #f3dc91;
+  --yellow-light: #fff4c7;
+
+  /* Text */
+  --text-main: #625269;
+  --text-soft: #8c788f;
+
+  --white: #ffffff;
+}
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+  color: var(--text-main);
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      #ffd9e8 0,
+      #ffd9e8 8%,
+      transparent 9%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      #e4d5f5 0,
+      #e4d5f5 10%,
+      transparent 11%
+    ),
+    radial-gradient(
+      circle at 80% 85%,
+      #fff1bc 0,
+      #fff1bc 6%,
+      transparent 7%
+    ),
+    linear-gradient(
+      135deg,
+      #fde4ee,
+      #f6ddec,
+      #eee3f8
+    );
+
+  background-attachment: fixed;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+  width: 90%;
+  max-width: 720px;
+
+  margin: 45px auto;
+  padding: 32px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(255, 248, 252, 0.93)
+    );
+
+  border: 2px solid #efcfdf;
+  border-radius: 28px;
+
+  box-shadow:
+    0 15px 40px rgba(165, 112, 150, 0.17),
+    0 4px 0 rgba(189, 162, 224, 0.15);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* ลูกเล่นมุมกล่อง */
+.container::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 18px;
+  right: 24px;
+
+  font-size: 26px;
+
+  color: #d7b5ee;
+}
+
+.container::after {
+  content: "♡";
+
+  position: absolute;
+
+  top: 52px;
+  right: 55px;
+
+  font-size: 20px;
+
+  color: #f3b1cb;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+  margin: 0 0 8px;
+
+  text-align: center;
+
+  font-size: 34px;
+
+  color: #b75f8d;
+
+  text-shadow:
+    2px 2px 0 #f9dce9;
+}
+
+.container > p {
+  margin-bottom: 30px;
+
+  text-align: center;
+
+  color: var(--text-soft);
+}
+
+/* =========================
+   FORM
+========================= */
+
+#task-form {
+  padding: 22px;
+
+  margin-bottom: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f7,
+      #f7effd
+    );
+
+  border: 2px solid #efcfe0;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 7px 18px rgba(184, 128, 162, 0.1);
+
+  position: relative;
+}
+
+#task-form::before {
+  content: "🌷 Add a new task";
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #a86794;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  margin-bottom: 12px;
+
+  border: 2px solid #ead5e2;
+
+  border-radius: 14px;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  color: var(--text-main);
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--purple-main);
+
+  background-color: white;
+
+  box-shadow:
+    0 0 0 4px rgba(189, 162, 224, 0.16);
+
+  transform: translateY(-1px);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b7a3af;
+}
+
+textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+/* =========================
+   GENERAL BUTTON
+========================= */
+
+button {
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Add Task */
+#task-form button {
+  width: 100%;
+
+  padding: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #efa8c5,
+      #d8aeea
+    );
+
+  color: white;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 5px 12px rgba(184, 111, 157, 0.2);
+}
+
+#task-form button:hover {
+  box-shadow:
+    0 7px 16px rgba(184, 111, 157, 0.3);
+}
+
+/* =========================
+   TASK SECTION
+========================= */
+
+.task-section h2 {
+  margin-top: 5px;
+
+  color: #9567aa;
+
+  font-size: 22px;
+}
+
+/* =========================
+   FILTER
+========================= */
+
+.filters {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  flex-wrap: wrap;
+}
+
+.filters button {
+  background:
+    linear-gradient(
+      135deg,
+      #eadff7,
+      #f7e6f0
+    );
+
+  color: #74577f;
+
+  border: 1px solid #dcc6eb;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 3px 8px rgba(145, 102, 165, 0.09);
+}
+
+.filters button.active {
+  background:
+    linear-gradient(
+      135deg,
+      #dfcef1,
+      #f5d9e7
+    );
+}
+
+/* =========================
+   TASK LIST
+========================= */
+
+#task-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* Active Task */
+#task-list > div {
+  padding: 19px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8fb 0%,
+      #fff2f7 58%,
+      #f8f2fd 100%
+    );
+
+  border: 2px solid #efd4e2;
+
+  border-left: 6px solid var(--pink-main);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 7px 18px rgba(170, 113, 150, 0.1);
+
+  position: relative;
+
+  transition: 0.22s;
+}
+
+/* ดาวเล็ก ๆ บน task */
+#task-list > div::after {
+  content: "✦";
+
+  position: absolute;
+
+  top: 13px;
+  right: 16px;
+
+  color: #dbc3ee;
+
+  font-size: 17px;
+}
+
+#task-list > div:hover {
+  transform: translateY(-4px) rotate(-0.15deg);
+
+  box-shadow:
+    0 12px 26px rgba(170, 113, 150, 0.17);
+}
+
+#task-list h3 {
+  margin-top: 0;
+  margin-bottom: 11px;
+
+  padding-right: 25px;
+
+  color: #b45f8b;
+
+  font-size: 19px;
+}
+
+#task-list p {
+  margin: 8px 0;
+
+  color: #706175;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-badge {
+  display: inline-block;
+
+  padding: 5px 11px;
+
+  margin-left: 4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff6d6,
+      #ffedb4
+    );
+
+  color: #776333;
+
+  border: 1px solid #eedb98;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  box-shadow:
+    0 2px 5px rgba(167, 141, 63, 0.08);
+}
+
+/* =========================
+   TASK BUTTONS
+========================= */
+
+.toggle-btn {
+  margin-top: 8px;
+  margin-right: 6px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e5d7f5,
+      #d8c2ed
+    );
+
+  color: #644d76;
+}
+
+.toggle-btn:hover {
+  box-shadow:
+    0 4px 10px rgba(135, 96, 160, 0.18);
+}
+
+.edit-btn {
+  margin-top: 8px;
+  margin-right: 6px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe1ed,
+      #f7c9dd
+    );
+
+  color: #805166;
+}
+
+.edit-btn:hover {
+  box-shadow:
+    0 4px 10px rgba(177, 105, 140, 0.17);
+}
+
+.delete-btn {
+  margin-top: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff6d5,
+      #f9e7ad
+    );
+
+  color: #746132;
+}
+
+.delete-btn:hover {
+  box-shadow:
+    0 4px 10px rgba(176, 146, 65, 0.17);
+}
+
+/* =========================
+   COMPLETED TASK
+========================= */
+
+#task-list > div.completed {
+  background:
+    linear-gradient(
+      135deg,
+      #f8f1fc 0%,
+      #efe2f8 65%,
+      #fdebf3 100%
+    );
+
+  border-color: #d9c4e8;
+
+  border-left: 6px solid #ae8bd3;
+
+  box-shadow:
+    0 7px 18px rgba(132, 100, 156, 0.11);
+}
+
+#task-list > div.completed::after {
+  content: "♡";
+
+  color: #c6a9df;
+
+  font-size: 19px;
+}
+
+#task-list > div.completed h3 {
+  color: #816d8f;
+
+  text-decoration: line-through;
+
+  text-decoration-thickness: 2px;
+}
+
+#task-list > div.completed .toggle-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #d9c4ed,
+      #c9ace4
+    );
+
+  color: #5e4870;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: 94%;
+
+    margin: 20px auto;
+
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters button {
+    width: 100%;
+  }
+
+  .toggle-btn,
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+
+    margin: 5px 0;
+  }
+}
+
+.filters button.active {
+  background: linear-gradient(
+    135deg,
+    #cdb4eb,
+    #edaac8
+  );
+
+  color: white;
+
+  border-color: transparent;
+
+  box-shadow:
+    0 5px 12px rgba(154, 105, 176, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+
+  padding: 30px 20px;
+
+  background: linear-gradient(
+    135deg,
+    #fff3f8,
+    #f3eafb
+  ) !important;
+
+  border: 2px dashed #d9bce8 !important;
+
+  border-left: 2px dashed #d9bce8 !important;
+
+  color: #8a6f92;
+}
+
+.empty-state p {
+  margin: 0 !important;
+
+  font-size: 16px;
+}
+/* Cute header decoration */
+h1::before {
+  content: "✦ your little study space ✦";
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #bda2e0;
+  margin-bottom: 12px;
+}
+
+h1::after {
+  content: " ♡";
+  color: #efa8c5;
+}
+/* Cute due date input */
+#task-form label[for="dueDate"] {
+  display: block;
+  margin: 4px 0 9px;
+  color: #a56c99;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#dueDate {
+  background: #fffafc;
+  border-color: #e8cde9;
+  color: #846b90;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#dueDate:focus {
+  border-color: #c9a6e8;
+  box-shadow: 0 0 0 4px #eadcf8;
+}
+/* Due date sticker */
+#task-list .due-date {
+  display: inline-block;
+  padding: 7px 12px;
+  background: #fff6df;
+  border: 1px dashed #e8cf9b;
+  border-radius: 999px;
+  color: #806b45;
+  font-size: 13px;
+  font-weight: 600;
+}

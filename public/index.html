@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Student Task Tracker</h1>
+    <p>ระบบจัดการงานและการบ้านสำหรับนักศึกษา</p>
+
+    
+<form id="task-form">
+
+  <!-- ชื่องาน -->
+  <input
+    type="text"
+    id="title"
+    placeholder="ชื่องาน เช่น ทำการบ้าน Web Programming"
+    required
+  >
+
+  <!-- รายละเอียด -->
+  <textarea
+    id="description"
+    placeholder="รายละเอียดงาน"
+  ></textarea>
+
+  <!-- รายวิชา -->
+  <input
+    type="text"
+    id="category"
+    placeholder="รายวิชา เช่น Web Programming"
+  >
+
+  <!-- วันกำหนดส่ง -->
+  <label for="dueDate">วันกำหนดส่ง (Due Date)</label>
+  <input
+    type="date"
+    id="dueDate"
+  >
+
+  <button type="submit">Add Task</button>
+
+</form>
+
+    <section class="task-section">
+        <h2>รายการงาน</h2>
+
+        <div class="filters">
+            <button type="button" data-filter="all" class="active">All</button>
+            <button type="button" data-filter="active">Active</button>
+            <button type="button" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="task-list">
+            <!-- JavaScript จะนำ Task มาใส่ตรงนี้ -->
+        </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
